@@ -31,13 +31,50 @@ def recommend(movie):
   return movies_lst_title
 
 
-
+# Streamlit App UI
+st.set_page_config(page_title="Movie Recommender", page_icon="🎬", layout="wide")
 st.title("Movie Recommender")
+st.markdown("### Get movie recommendations based on your selected movie")
 
-selected_movie = st.selectbox("how would you like to be contacted",
-                      movies_lst)
+selected_movie = st.selectbox("Select movie name",
+                              movies_lst)
 
 if st.button('Recommend'):
     recommendations = recommend(selected_movie)
+
+    st.markdown(f"### Top 5 Movies Similar to: *{selected_movie}*")
+
     for movie in recommendations:
-        st.write(movie)
+        st.markdown(f"""
+            <div class="movie-box">
+                <h3>{movie}</h3>
+            </div>
+        """, unsafe_allow_html=True)
+
+
+st.markdown("""
+        <style>
+            .movie-box {
+              width: 50%;
+              border: 2px solid green;
+              border-radius: 10px;
+              padding: 10px;
+              margin-bottom: 20px;
+              box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+              color: 
+            }
+
+            .stButton>button {
+              color: white;
+              font-size: 16px;
+              padding: 10px 20px;
+              border: 2px solid green;
+            }
+
+            .stButton>button:hover {
+              color: white;
+              border: 2px solid green;
+              background-color: green;
+            }
+        </style>
+    """, unsafe_allow_html=True)
