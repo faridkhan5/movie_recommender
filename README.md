@@ -1,9 +1,9 @@
 # Movie Recommendation System
 
-![Website](website_ss.png)
-
 ## About
 An interactive content-based movie recommendation system that suggests similar movies based on user input. This project combines natural language processing, machine learning, and a user-friendly interface to deliver personalized movie recommendations.
+
+![Website](website_ss.png)
 
 ## Methodology
 1. Data Preprocessing:
